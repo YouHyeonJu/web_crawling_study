@@ -61,7 +61,7 @@ for i in range(0,len(title_l)):
     no+=1
 f.close()
 
-no=list(range(1,len(title_l)+1))
+no=list(range(1,len(title_l)+1)
 bigdata=pd.DataFrame()
 bigdata['번호']=pd.Series(no)
 bigdata['언론사']=pd.Series(sinmoon_l)
