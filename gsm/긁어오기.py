@@ -28,25 +28,25 @@ html=driver.page_source
 soup=BeautifulSoup(html,"html.parser")
 
 content_list=soup.find('ul',class_='list_news').find_all('li')
-print(content_list)
+
 
 for i in content_list:
     try:
-        sinmoon=i.find("div","info_group")
+        sinmoon=i.find("a","info press").get_text()
         sinmoon_l.append(sinmoon)
-        print('언론사: ',title)
+        print('언론사: ',sinmoon)
         print('\n')
     except:
         pass
     try:
-        title=i.find("a","news_tit")
+        title=i.find("a","news_tit").get_text()
         title_l.append(title)
         print('제목: ',title)
         print('\n')
     except:
         pass
     try:
-        intitle=i.find("div","news_dsc")
+        intitle=i.find("div","news_dsc").get_text()
         intitle_l.append(intitle)
         print('내용: ',intitle)
         print('\n')
@@ -54,9 +54,20 @@ for i in content_list:
         pass
 f=open(f_name,'w',encoding='UTF-8')
 for i in range(0,len(title_l)):
-    f.write('번호',str(no),"\n")
-    f.write('언론사',str(sinmoon),"\n")
-    f.write('제목',str(title),"\n")
-    f.write('내용',str(intitle),"\n")
+    f.write('번호: '+str(no)+"\n")
+    f.write('언론사: '+str(sinmoon_l[i])+"\n")
+    f.write('제목: '+str(title_l[i])+"\n")
+    f.write('내용: '+str(intitle_l[i])+"\n")
     no+=1
 f.close()
+
+no=list(range(1,len(title_l)+1))
+bigdata=pd.DataFrame()
+bigdata['번호']=pd.Series(no)
+bigdata['언론사']=pd.Series(sinmoon_l)
+bigdata['제목']=pd.Series(title_l)
+bigdata['내용']=pd.Series(intitle_l)
+bigdata.to_csv(fc_name,encoding="utf-8-sig",index=False)
+df=pd.read_csv(fc_name,index_col=0)
+print(df)
+
