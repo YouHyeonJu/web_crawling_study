@@ -61,13 +61,13 @@ for i in range(0,len(title_l)):
     no+=1
 f.close()
 
-no=list(range(1,len(title_l)+1)
-bigdata=pd.DataFrame()
-bigdata['번호']=pd.Series(no)
-bigdata['언론사']=pd.Series(sinmoon_l)
-bigdata['제목']=pd.Series(title_l)
-bigdata['내용']=pd.Series(intitle_l)
-bigdata.to_csv(fc_name,encoding="utf-8-sig",index=False)
+no=list(range(1,len(title_l)+1))
+bigdatas=pd.DataFrame()
+bigdatas['번호']=pd.Series(no)
+bigdatas['언론사']=pd.Series(sinmoon_l)
+bigdatas['제목']=pd.Series(title_l)
+bigdatas['내용']=pd.Series(intitle_l)
+bigdatas.to_csv(fc_name,encoding="utf-8-sig",index=False)
 df=pd.read_csv(fc_name,index_col=0)
 print(df)
 

@@ -5,7 +5,7 @@ import pandas as pd
 
 query_txt="미와야키 사쿠라"
 f_name="C:/Users/hs46h/OneDrive/바탕 화면/동생/web_crawling_study/gsm/벅.txt"
-fc_name="C:/Users/hs46h/OneDrive/바탕 화면/동생/web_crawling_study/gsm/벅.txt"
+fc_name="C:/Users/hs46h/OneDrive/바탕 화면/동생/web_crawling_study/gsm/벅.csv"
 path="C:/Temp/chromedriver.exe"
 driver= webdriver.Chrome(path)
 
