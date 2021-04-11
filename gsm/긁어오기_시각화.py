@@ -34,10 +34,19 @@ for i in data6:
 data8=Counter(data7)
 
 data9=data8.most_common(50)
-print("\n\n\ndata8: ",type(data8))
-
-print("\n\n\ndata9: ",type(data9))
+print(data9)
 word=dict(data9)
-print("\n\n\ndata9(dict): ",type(data9))
-a = {1:'a', 1:'b'}
-print("\n\n\ndata9(dict): ",type(a))
+import numpy as np
+from PIL import Image
+from wordcloud import ImageColorGenerator
+imarry=np.array(Image.open("C:/Users/hs46h/OneDrive/바탕 화면/동생/web_crawling_study/gsm/Data/star.jpg"))
+save_image=("C:/Users/hs46h/OneDrive/바탕 화면/동생/web_crawling_study/gsm/Data/bigstar.jpg")
+wordcloud=WordCloud(font_path="c:\\windows\\fonts\\H2GTRM.TTF",
+                    relative_scaling=0.4,mask=imarry,
+                    background_color='red').generate_from_frequencies(word)
+plt.figure(figsize=(8,8))
+plt.imshow(wordcloud)
+plt.axis('off')
+plt.savefig(save_image)
+plt.show()
+
