@@ -24,5 +24,23 @@ pwd.send_keys(LOGIN_INFO['userPassword'])
 print(LOGIN_INFO['userPassword'])
 # pwd.submit()
 driver.find_element_by_link_text("로그인").click()
-driver.find_element_by_link_text("나의 수강현황").click()
-webdriver.ActionChains(driver).move_to_element(ref)
+driver.find_element_by_link_text("마이페이지").click()
+
+driver.find_element_by_link_text("강의듣기").click()
+html=driver.page_source
+soup = BeautifulSoup(html, 'html.parser')
+gag=driver.find_element_by_link_text("학습하기").text
+print(gag)
+print(type(gag))
+while gag=="학습하기":
+    print("1")
+    gag=driver.find_element_by_link_text("학습하기").text
+    driver.find_element_by_link_text("학습하기").click()
+    time.sleep(10)
+    driver.find_element_by_link_text("x2.0").click()
+    while driver.find_element_by_link_text("수고하셨습니다.").text!="수고하셨습니다.":
+        if driver.find_element_by_link_text("다음페이지로 이동하세요.").text=="다음페이지로 이동하세요.":
+            driver.find_element_by_link_text("다음페이지로 이동하세요.").click()
+    
+
+
