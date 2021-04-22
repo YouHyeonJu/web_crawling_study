@@ -29,7 +29,16 @@ import re
 # text="""101 COM PythonProgramming 102 MAT LinearAlgebra 103 ENG ComputerEnglish"""
 # s=re.findall('\d+',text)
 # print(s)
-f= open("Data/UNDHR.txt")
-for line in f:
-    if re.search("^\([0-9]+\)",line):
-        print(line)
+# f= open("Data/UNDHR.txt")
+# for line in f:
+#     if re.search("^\([0-9]+\)",line):
+#         print(line)
+txt='abc@facebook.com 와 bbc@google.com에서 이메일이 도착하였습니다.'
+# output=re.findall('\S+@[a-z.]+',txt)
+# print("추출된 이메일: ",output)
+# output=re.findall('\w+@[a-z.]+',txt)
+# print("추출된 이메일: ",output)
+output=re.findall('\S+@[a-z.]+',txt)
+for text in output:
+    text_split=text.split('@')
+    print("추출된 아이디"+text_split[0]+"도메인:"+text_split[1])
