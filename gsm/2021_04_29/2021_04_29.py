@@ -21,3 +21,4 @@ x=[x for x in range(-10,10)]
 y1=[2*t for t in x]
 plt.plot(x,y1,color='green',marker='o')
 plt.show()
+
