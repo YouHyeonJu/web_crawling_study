@@ -11,4 +11,4 @@ for row in data:
     if max_wind<wind:
         max_wind=wind
 print("지난 10년간 울릉도의 최대풍속중 초대값은 ",max_wind,"m/s")
-data.read_csv(f,encoding='CP949')
+data.read_csv(f,encoding='CP949',)
