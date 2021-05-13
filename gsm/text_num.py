@@ -46,3 +46,6 @@ for text in output:
 s="My lucky number 27 99"
 print(re.sub("[0-9]+","*",s))
 print(re.sub('\d+','*',s))
+
+st="{'locs': [(128, 139, 262, 295)], 'preds': array([[0.03960581, 0.96039414]], dtype=float32)}"
+print(re.sub('\w\w\w\w','*',st))
